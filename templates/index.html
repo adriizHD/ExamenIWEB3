@@ -6,14 +6,43 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
 </head>
 <body>
-    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">Directorio </div>
-        <div class="card-body">
-            <p class="card-title">Usted ha iniciado sesión.</p>
-            <form action="{{ url_for('logout') }}" method="get">
-                <button type="submit" class="btn btn-secondary">Cerrar sesión</button>
-            </form>
+    <div class="card-wrapper">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Directorio </div>
+            <div class="card-body">
+                <p class="card-title">Usted ha iniciado sesión.</p>
+                    <form action="{{ url_for('logout') }}" method="get">
+                        <button type="submit" class="btn btn-secondary">Cerrar sesión</button>
+                    </form>
+            </div>
+            </div>
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Información de la sesión </div>
+            <div class="card-body">
+                <p class="card-title">
+                    ID: {{ session["id"] }}
+                </p>
+            </div>
         </div>
     </div>
+    <div class="card-wrapper">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Vendaval </div>
+            <div class="card-body">
+                <p class="card-title">Filtrar por la descripción del artículo que desea encontrar.</p>
+                <div class="col-sm-6">
+                    <input type="inputText" class="form-control" name="busqueda" id="busqueda" placeholder="Introduzca busqueda">
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" value="submit" class="btn btn-success">Buscar</button>
+            </div>
+        </div>
+        <br/>
+        <form action="{{ url_for('crear_articulo_c') }}" method="post">
+            <button type="submit" class="btn btn-success">Ofrecer artículo</button>
+        </form>
+    </div>
+
 </body>
 </html>
